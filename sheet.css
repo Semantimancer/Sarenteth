@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Shadows into Light';
+    src: url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+}
+
+.sheet-background { 
+    background: url(http://images.naldzgraphics.net/2014/07/1-certificate-paper-texture.jpg); 
+    
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr { width: 100%; }
+
+td {
+    font-family: 'Shadows into Light', cursive;
+    font-size: 20px;
+}
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-tab1:checked ~ div.sheet-human { display: block; }
+input.sheet-tab2:checked ~ div.sheet-wizard { display: block; }
+input.sheet-tab3:checked ~ div.sheet-fairy { display: block; }
+input.sheet-tab4:checked ~ div.sheet-spirit { display: block; }
+
+input { background: rgba(0,0,0,0); }
+
+.sheet-tab-content input[type=number].sheet-approach-left {
+    height: 35px;
+    width: 60px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+    text-align: center;
+    border : solid black 2px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Shadows into Light', cursive;
+
+    border-top-left-radius: 100px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 100px;
+}
+
+.sheet-tab-content input[type=number].sheet-approach-right {
+    height: 35px;
+    width: 60px;
+    margin-right: 5px;
+    margin-left: 5px;
+    
+    text-align: right;
+    border : solid black 2px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Shadows into Light', cursive;
+
+    border-top-right-radius: 100px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 100px;
+}
+
+.sheet-attribute {
+    height: 35px;
+    width: 70px;
+    
+    text-align: center;
+    border : solid black 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Shadows into Light', cursive;
+}
+
+.sheet-col {
+    text-align: center;
+    font-family: 'Shadows into Light', cursive;
+}
+
+.sheet-3colrow {
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 75%;
+}
+
+th.sheet-geas { 
+    text-align: left; 
+    font-family: 'Shadows into Light', cursive;
+    font-size: 20px;
+    padding: 5px;
+}
+
+td.sheet-geas { 
+    vertical-align: top; 
+    font-family: 'Shadows into Light', cursive;
+    font-size: 20px;
+}
+
+.sheet-geas-text { width: 200px; }
+
+tr.sheet-wealth:hover {
+    background: rgba(100,100,100,0.1);
+}
+
+th.sheet-wealth { 
+    background: rgba(200,200,0,0.2);
+    width: 70px;
+}
+
+td.sheet-wealth input[type=number] {
+    width: 45px;
+    border-width: 1px;
+    border-color: black;
+    border-style: none;
+}
+
+td.sheet-wealth.sheet-separator { width: 5px; }
+
+td.sheet-wealth.sheet-note {
+    font-size: 15px;
+    font-style: italic;
+}
+
+textarea {
+    height: 4.5em;
+    width: 250px;
+    background: rgba(0,0,0,0);
+    
+    font-family: 'Shadows into Light', cursive;
+    font-size: 16px;
+}
+
+input[type=text] {
+    border-width: 1px;
+    border-color: black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: dashed;
+    
+    font-family: 'Shadows into Light', cursive;
+    font-size: 16px;
+    font-weight: bold;
+    
+    width: 180px;
+}
+
+input[type=number] {
+    text-align: center;
+    
+    font-family: 'Shadows into Light', cursive;
+    font-size: 20px;
+    font-weight: bold;
+}
