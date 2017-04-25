@@ -8,7 +8,7 @@ on("chat:message",function(msg){
 });
 
 on("chat:message",function(msg){
-    if(msg.type=="api"&&msg.content.indexOf("!new-weather") == 0){
+    if(msg.type=="api"&&msg.content.indexOf("!new-weather")==0&&playerIsGM(msg.playerid)){
         var environment = findObjs({ _type: "character", name: "Environment" })[0];
         
         if (environment){
