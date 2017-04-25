@@ -1,0 +1,247 @@
+<div class="sheet-background">
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span></span>Human&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span></span>Wizard&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span></span>Fairy&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span></span>Spirit
+<br><br>
+
+<div class="sheet-tab-content sheet-human">
+    <table>
+        <tr>
+            <td style="text-align: right">Vigor</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td class="sheet-attribute">Action</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
+            <td>Meditation</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Passion</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td class="sheet-attribute">Emotion</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
+            <td>Serenity</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Empathy</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td class="sheet-attribute">Insight</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
+            <td>Will</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Hope</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td class="sheet-attribute">Outlook</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
+            <td>Verity</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Fate</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Fate" value="50" /></td>
+            <td class="sheet-attribute">Destiny</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Choice" value="100-@{Fate}" disabled="true" /></td>
+            <td>Choice</td>
+        </tr>
+    </table>
+</div>
+<div class="sheet-tab-content sheet-wizard">
+    <table>
+        <tr>
+            <td style="text-align: right">Vigor</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td class="sheet-attribute">Action</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
+            <td>Meditation</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Passion</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td class="sheet-attribute">Emotion</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
+            <td>Serenity</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Empathy</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td class="sheet-attribute">Insight</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
+            <td>Will</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Hope</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td class="sheet-attribute">Outlook</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
+            <td>Verity</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Command</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td class="sheet-attribute">Communion</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
+            <td>Harmony</td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th class="sheet-geas">Geas Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class="sheet-geas">&nbsp;&nbsp;&nbsp;Geas Description</th>
+        </tr>
+    </table>
+    <fieldset class="repeating_geassa">
+        <table>
+            <tr>
+                <td class="sheet-geas"><input type="text" name="attr_geas-name" class="sheet-geas-text"></td>
+                <td class="sheet-geas"><textarea name="attr_geas-desc"></textarea></td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+<div class="sheet-tab-content sheet-fairy">
+    <table>
+        <tr>
+            <td style="text-align: right">Give</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Give" value="50" /></td>
+            <td class="sheet-attribute">Exchange</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Take" value="100-@{Give}" disabled="true" /></td>
+            <td>Take</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Salt</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Salt" value="50" /></td>
+            <td class="sheet-attribute">Soul</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Fire" value="100-@{Salt}" disabled="true" /></td>
+            <td>Fire</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Bulk</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Bulk" value="50" /></td>
+            <td class="sheet-attribute">Glamor</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Wisp" value="100-@{Bulk}" disabled="true" /></td>
+            <td>Wisp</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Joy</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Joy" value="50" /></td>
+            <td class="sheet-attribute">Song</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Sorrow" value="100-@{Joy}" disabled="true" /></td>
+            <td>Sorrow</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Command</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td class="sheet-attribute">Communion</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
+            <td>Harmony</td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th class="sheet-geas">Geas Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class="sheet-geas">&nbsp;&nbsp;&nbsp;Geas Description</th>
+        </tr>
+    </table>
+    <fieldset class="repeating_geassa">
+        <table>
+            <tr>
+                <td class="sheet-geas"><input type="text" name="attr_geas-name" class="sheet-geas-text"></td>
+                <td class="sheet-geas"><textarea name="attr_geas-desc"></textarea></td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+<div class="sheet-tab-content sheet-spirit">
+    <table>
+        <tr>
+            <td style="text-align: right">Fate</td>
+            <td><input class="sheet-approach-left" type="number" name="attr_Fate" value="100" /></td>
+            <td class="sheet-attribute">Spirit</td>
+            <td><input class="sheet-approach-right" type="number" name="attr_Freedom" value="100-@{Fate}" disabled="true" /></td>
+            <td>Freedom</td>
+        </tr>
+    </table>
+</div>
+
+<br>
+
+<div class='sheet-3colrow'>
+    <div class='sheet-col'>
+        <h3>Edges</3>
+        <fieldset class="repeating_edges">
+            <input type="text" name="attr_edge">
+        </fieldset>
+    </div>
+    <div class='sheet-col'>
+        <h3>Scars</h3>
+        <fieldset class="repeating_scars">
+            <input type="text" name="attr_scar">
+        </fieldset>
+    </div>
+    <div class='sheet-col'>
+        <h3>Obsessions</h3>
+        <fieldset class="repeating_obsessions">
+            <input type="text" name="attr_obsession">
+        </fieldset>
+    </div>
+</div>
+
+<hr>
+
+<div class='sheet-3colrow'>
+    <div class='sheet-col'>
+        <h3>Possessions</h3>
+        <fieldset class="repeating_possessions">
+            <input type="text" name="attr_edge">
+        </fieldset>
+        <br>
+        <table>
+            <tr class="sheet-wealth">
+                <th class="sheet-wealth">Rings</th>
+                <td class="sheet-wealth sheet-separator">&nbsp;</td>
+                <td class="sheet-wealth"><input type="number" name="attr_rings"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="sheet-wealth sheet-note">(20 rounds)</td>
+            </tr>
+            <tr class="sheet-wealth">
+                <th class="sheet-wealth">Rounds</th>
+                <td class="sheet-wealth sheet-separator">&nbsp;</td>
+                <td class="sheet-wealth"><input type="number" name="attr_rounds"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="sheet-wealth sheet-note">(2 crescents)</td>
+            </tr>
+            <tr class="sheet-wealth">
+                <th class="sheet-wealth">Crescents</th>
+                <td class="sheet-wealth sheet-separator">&nbsp;</td>
+                <td class="sheet-wealth"><input type="number" name="attr_crescents"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="sheet-wealth sheet-note">(12.5 talons)</td>
+            </tr>
+            <tr class="sheet-wealth">
+                <th class="sheet-wealth">Talons</th>
+                <td class="sheet-wealth sheet-separator">&nbsp;</td>
+                <td class="sheet-wealth"><input type="number" name="attr_talons"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="sheet-wealth sheet-note">(2 half-talons)</td>
+            </tr>
+            <tr class="sheet-wealth">
+                <th class="sheet-wealth">Half-Talons</th>
+                <td class="sheet-wealth sheet-separator">&nbsp;</td>
+                <td class="sheet-wealth"><input type="number" name="attr_halfs"></td>
+            </tr>
+        </table>
+    </div>
+    <div class='sheet-col'></div>
+    <div class='sheet-col'>
+        <h3>Allies</h3>
+        <fieldset class="repeating_allies">
+            <input type="text" name="attr_ally">
+        </fieldset>
+    </div>
+</div>
+</div>
