@@ -49,7 +49,7 @@ on("chat:message", function(msg){
 });
 
 on("chat:message", function(msg){
-    if (msg.type=="api"&&msg.content.indexOf("!advance-date") == 0){
+    if (msg.type=="api"&&msg.content.indexOf("!advance-date")==0&&playerIsGM(msg.playerid)){
         var args = msg.content.split(" ");
         if (args[1]) {
             var mod = parseInt(args[1]);
