@@ -1,5 +1,5 @@
 on("chat:message", function(msg){
-    if (msg.type=="api"&&msg.content.indexOf("!newnpc")==0){
+    if (msg.type=="api"&&msg.content.indexOf("!newnpc")==0&&playerIsGM(msg.playerid)){
         var token = findObjs({ _id: msg.selected[0]._id})[0];
         if(token&&token.get("_subtype")=="token"){
             var charName = msg.content.split(" ")[1];
