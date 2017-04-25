@@ -1,4 +1,16 @@
 on("chat:message", function(msg){
+    if (msg.type=="api"&&msg.content.indexOf("!contest") == 0){
+        sendChat("","!circumstances");
+        var string = "<ol><li>Actor gives an action.</li><li>Opponent describes how they stop the actor. They <b>bid difficulty</b>, <b>declare "
+                   + "their approach</b>, <b>add momentum</b>, and (optionally) <b>set advantage</b>.</li><li>Actor can escalate, surrender, or "
+                   + "challenge.<ul><li>If they escalate, actor and opposition switch roles and return to Step 2.</li><li>If they surrender, they "
+                   + "lose. The opponent can deal damage or inflict a scar, but the actor narrates the results.</li><li>If they challenge, the "
+                   + "contest becomes a single roll (with the chance to act to endure).</li></ul></li></ol>";
+        sendChat("Sarenteth",string);
+    }
+});
+
+on("chat:message", function(msg){
     if (msg.type=="api"){
         if(msg.content.indexOf("!circumstances") == 0){
             displayEnvironment("Circumstances","bio");
