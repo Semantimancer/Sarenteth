@@ -11,6 +11,19 @@ on("chat:message", function(msg){
 });
 
 on("chat:message", function(msg){
+    if (msg.type=="api"&&msg.content.indexOf("!help") == 0){
+        sendChat("!time","Display current date and phase of the moon");
+        sendChat("!circumstances","Display current circumstances");
+        sendChat("!destinies","Display current destinies");
+        sendChat("!weather","Display the current weather and temperature");
+        sendChat("!contest","Display contest rules & current circumstances");
+        sendChat("!roll","<score|value> [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|<character>\nDisplay all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!help","Display these messages.");
+    }
+});
+
+on("chat:message", function(msg){
     if (msg.type=="api"){
         if(msg.content.indexOf("!circumstances") == 0){
             displayEnvironment("Circumstances","bio");
