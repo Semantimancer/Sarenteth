@@ -132,4 +132,5 @@ slides = ["Vigor is used for strong, fast attacks. These are done on instinct, a
          ,"Did you know that, much like trees, druids reproduce by budding?"
          ,"You can offer to use a scar to double the difficulty of your roll, in exchange for a wyrd."
          ,"Welcome all you wayward souls,\n   you who wander in the dark,\nthere's light for the lost,\n   the forlorn and the meek,\nin the final tolling knell.\n   All forgotten are your sorrows,\nWhen you to soil of earth\n   submit."
+         ,"<b>Achievement Get</b><br>Charlie - <i>Life, Uh, Finds A Way</i>"
          ];
