@@ -3,6 +3,8 @@ on("chat:message", function(msg){
         sendChat("!time","Display current date and phase of the moon");
         sendChat("!circumstances","Display current circumstances");
         sendChat("!destinies","Display current destinies");
+        sendChat("!allies","Display the allies (and their scores) of the current character");
+        sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
         sendChat("!roll","<score|value> [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
@@ -34,6 +36,14 @@ on("chat:message", function(msg){
             });
         } else if(command.indexOf("!allies") == 0){
             displayAllies(msg.who);
+        } else if(command.indexOf("!wyrd") == 0){
+            var opts = ["<b>Flip Dice:</b> Spend 1 Wyrd. Flip the 10s and 1s position of your roll."
+                       ,"<b>Resolve Uncertainty:</b> Offer 1+ Wyrd and answer an uncertainty. If accepted, answer is true."
+                       ,"<b>Invoke Scar:</b> Offer 1 Wyrd and name an unused scar. If accepted, opponent rolls at double difficulty."
+                       ,"<b>Invoke Destiny:</b> Spend 1 Wyrd. Describe how situation fits with destiny, and narrate the destiny's conclusion."
+                       ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
+                       ,"<b>Bribe:</b> Wyrd can be offered in exchange for goods and services."];
+            display("Sarenteth",opts);
         } else if(command.indexOf("!contest")){
             sendChat("","!circumstances");
             var steps = ["1. <b>Actor<b> gives an action"
