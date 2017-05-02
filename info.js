@@ -1,16 +1,4 @@
 on("chat:message", function(msg){
-    if (msg.type=="api"&&msg.content.indexOf("!contest") == 0){
-        sendChat("","!circumstances");
-        var string = "<ol><li>Actor gives an action.</li><li>Opponent describes how they stop the actor. They <b>bid difficulty</b>, <b>declare "
-                   + "their approach</b>, <b>add momentum</b>, and (optionally) <b>set advantage</b>.</li><li>Actor can escalate, surrender, or "
-                   + "challenge.<ul><li>If they escalate, actor and opposition switch roles and return to Step 2.</li><li>If they surrender, they "
-                   + "lose. The opponent can deal damage or inflict a scar, but the actor narrates the results.</li><li>If they challenge, the "
-                   + "contest becomes a single roll (with the chance to act to endure).</li></ul></li></ol>";
-        sendChat("Sarenteth",string);
-    }
-});
-
-on("chat:message", function(msg){
     if (msg.type=="api"&&msg.content.indexOf("!help") == 0){
         sendChat("!time","Display current date and phase of the moon");
         sendChat("!circumstances","Display current circumstances");
@@ -25,11 +13,12 @@ on("chat:message", function(msg){
 
 on("chat:message", function(msg){
     if (msg.type=="api"){
-        if(msg.content.indexOf("!circumstances") == 0){
+        var command = msg.content;
+        if(command.indexOf("!circumstances") == 0){
             displayEnvironment("Circumstances","bio");
-        } else if(msg.content.indexOf("!destinies") == 0){
+        } else if(command.indexOf("!destinies") == 0){
             displayEnvironment("Destinies","gmnotes");
-        } else if(msg.content.indexOf("!obsessions") == 0){
+        } else if(command.indexOf("!obsessions") == 0){
             var args = msg.content.split(" ");
             if(args[1]){
                 if(args[1]=="players"){
@@ -43,8 +32,15 @@ on("chat:message", function(msg){
             names.forEach(function(name){
                 displayCharactersAttributes("repeating_obsessions",name);
             });
-        } else if(msg.content.indexOf("!allies") == 0){
+        } else if(command.indexOf("!allies") == 0){
             displayAllies(msg.who);
+        } else if(command.indexOf("!contest")){
+            sendChat("","!circumstances");
+            var steps = ["1. <b>Actor<b> gives an action"
+                        ,"2. <b>Opponent</b> describes how they stop <b>Actor</b>."
+                        ,"3. <b>Opponent <i>bids difficulty</i>, <i>declares their approach</i>, <i>adds momentum</i>, and may <i>set advantage</i>."
+                        ,"4. <b>Actor</b> can <i>escalate</i> (return to step 2 and switch roles), <i>surrender</i> (lose, but ignore momentum & narrate), or <i>challenge</i> (start a single roll)."];
+            display("Sarenteth",steps);
         }
     }
 });
