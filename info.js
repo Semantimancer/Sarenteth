@@ -39,9 +39,11 @@ on("chat:message", function(msg){
         } else if(command.indexOf("!wyrd") == 0){
             var opts = ["<b>Flip Dice:</b> Spend 1 Wyrd. Flip the 10s and 1s position of your roll."
                        ,"<b>Resolve Uncertainty:</b> Offer 1+ Wyrd and answer an uncertainty. If accepted, answer is true."
-                       ,"<b>Invoke Scar:</b> Offer 1 Wyrd and name an unused scar. If accepted, opponent rolls at double difficulty."
                        ,"<b>Invoke Destiny:</b> Spend 1 Wyrd. Describe how situation fits with destiny, and narrate the destiny's conclusion."
                        ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
+                       ,"<b>Invoke Scar:</b> Offer 1 Wyrd and name an unused scar. If accepted, opponent rolls at double difficulty."
+                       ,"<b>Push Obsession:</b> Spend 1 Wyrd and name a relevant obsession. Your Approach becomes equal to your roll result."
+                       ,"<b>Compel Obsession:</b> Offer 1+ Wyrd and offer a course of action befitting an obsession. If rejected, they pay you that many Wyrd."
                        ,"<b>Bribe:</b> Wyrd can be offered in exchange for goods and services."];
             display("Sarenteth",opts);
         } else if(command.indexOf("!contest") == 0){
