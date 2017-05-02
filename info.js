@@ -7,8 +7,8 @@ on("chat:message", function(msg){
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","<score|value> [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|<character>\nDisplay all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","&lt;score|value&gt; [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|&lt;character&gt;Display all characters who have yet to take their turn or set it to a specified character's turn");
         sendChat("!help","Display these messages.");
     }
 });
@@ -44,7 +44,7 @@ on("chat:message", function(msg){
                        ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
                        ,"<b>Bribe:</b> Wyrd can be offered in exchange for goods and services."];
             display("Sarenteth",opts);
-        } else if(command.indexOf("!contest")){
+        } else if(command.indexOf("!contest") == 0){
             sendChat("","!circumstances");
             var steps = ["1. <b>Actor<b> gives an action"
                         ,"2. <b>Opponent</b> describes how they stop <b>Actor</b>."
