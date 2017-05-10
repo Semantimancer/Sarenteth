@@ -49,7 +49,7 @@ on("chat:message", function(msg){
 });
 
 on("chat:message", function(msg){
-    if (msg.type=="api"&&msg.content.indexOf("!advance-date")==0&&playerIsGM(msg.playerid)){
+    if (msg.type=="api"&&msg.content.indexOf("!advance-date") == 0&&playerIsGM(msg.playerid)){
         var args = msg.content.split(" ");
         if (args[1]) {
             var mod = parseInt(args[1]);
@@ -61,13 +61,13 @@ on("chat:message", function(msg){
                 var monthAttribute = findObjs({_type: "attribute", name: "Month", _characterid: environment.id})[0];
                 var yearAttribute = findObjs({_type: "attribute", name: "Year", _characterid: environment.id})[0];
                 
-                var newDay = Math.max((day+mod)%30,1);
+                var newDay = Math.max((day+mod)%28,1);
                 dayAttribute.set("current",newDay);
                 
-                if(day+mod>29){
-                    if (day+mod!=30){ dayAttribute.set("current",newDay+1); }
+                if(day+mod>27){
+                    //if (day+mod!=30){ dayAttribute.set("current",newDay+1); }
                     var month = parseInt(getAttrByName(environment.id,"Month","current"));
-                    var newMonth = Math.max((month+((day+mod)/30))%13,1);
+                    var newMonth = Math.max((month+((day+mod)/27))%13,1);
                     monthAttribute.set("current",newMonth);
                     
                     if(month==12){
@@ -81,6 +81,8 @@ on("chat:message", function(msg){
                 var text = months[finalMonth-1] + " " + newDay + ", " + yearAttribute.get("current") + "\n\n  ";
                 var specialText = dayFacts[finalMonth-1][newDay-1];
                 
+                log("finalMonth: "+finalMonth);
+                log("newDay: "+newDay);
                 if (specialText.length > 2){
                     dateText.set("text",text + specialText);
                 } else {
@@ -143,14 +145,15 @@ var dayFacts = [//Senael
                 ,"2","3"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
                 ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night"
-                //Vernal Equinox is on Melael 16, minus current epact
-                ,"Ostar\n\nThe vernal equinox, the first time in the year that day and night are equal,\nwhich is celebrated with feasting and games involving eggs. It is Spring's\nholy day to the druids."
-                ,"17","18","19","20","21","22","23","24","25","26","27","28"]
+                ,"16","17","18","19","20","21","22","23","24","25","26","27","28"]
                 //Melael
                ,["Feast Day of Mele"
                 ,"2","3"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
-                ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17","18","19","20","21","22","23","24","25","26","27","28"]
+                ,"5"
+                 //Vernal Equinox is on Melael 16, minus current epact
+                ,"Ostar\n\nThe vernal equinox, the first time in the year that day and night are equal,\nwhich is celebrated with feasting and games involving eggs. It is Spring's\nholy day to the druids."
+                ,"7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17","18","19","20","21","22","23","24","25","26","27","28"]
                //Lunel
                ,["Beltane\n\nThe day which marks the first stirrings of summer. It is celebrated with\nfeasting and by making series of great bonfires, between which cattle\nare driven."
                 ,"Feast Day of Lugeln"
@@ -158,15 +161,15 @@ var dayFacts = [//Senael
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
                 ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
-                ,"19","20","21","22","23","24","25"
-                //Midsummer Feast is on Dorael 22, minus current epact
-                ,"Midsummer Feast\n\nThe summer solstice, when the sun hangs longest in the sky. The day is\nmarked by feasting, games of skill, and mock combats. It is Summer's\nholy day to the druids."
-                ,"27","28"]
+                ,"19","20","21","22","23","24","25","26","27","28"]
                //Dorael
                ,["Feast Day of Dorn"
                 ,"2","3"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
-                ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
+                ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night"
+                //Midsummer Feast is on Dorael 22, minus current epact
+                ,"Midsummer Feast\n\nThe summer solstice, when the sun hangs longest in the sky. The day is\nmarked by feasting, games of skill, and mock combats. It is Summer's\nholy day to the druids."
+                ,"17"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
                 ,"19","20","21","22","23","24","25","26","27","28"]
                //Verel
@@ -186,12 +189,12 @@ var dayFacts = [//Senael
                 ,"19","20","21","22","23","24","25","26","27","28"]
                //Mikiel
                ,["Feast Day of Meliki"
-                ,"2","3"
+                ,"2","3","4","5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
+                ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
+                ,"19","20","21"
                 //Autumnal Equinox is on Mikiel 28, minus current epact
                 ,"Feast of Gathering\n\nThe autumnal equinox, the second time in the year that day and night are\nequal, which is celebrated with feasting and giving thanks for the year's\nbounty. It is Autumn's holy day to the druids."
-                ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
-                ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
-                ,"19","20","21","22","23","24","25","26","27","28"]
+                ,"23","24","25","26","27","28"]
                //Jemael
                ,["Feast Day of Jeim"
                 ,"2","3"
@@ -211,11 +214,12 @@ var dayFacts = [//Senael
                ,["Feast Day of Myrr"
                 ,"2","3"
                 ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
+                ,"5","6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
+                ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
+                ,"19","20","21","22"
                 //Yule is on Trel 1, minus current epact
                 ,"Yule\n\nThe winter solstice, when the night is longest. The Yule Lads are said to be\nout in force and the Wild Hunt rides across the sky. It is Winter's holy\nday to the druids."
-                ,"6","7","8","9","10","11","12","13","Fire's Eve","Fire's Night","16","17"
-                ,"Market Day\nEvery town and city will be flooded with people come to buy, to sell, and to exchange information."
-                ,"19","20","21","22","23","24","25","26","27","28"] 
+                ,"24","25","26","27","28"] 
                //Trel
                ,["Feast Day of the Trine"
                 ,"2","3"
