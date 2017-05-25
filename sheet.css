@@ -18,6 +18,7 @@ tr { width: 100%; }
 td {
     font-family: 'Shadows into Light', cursive;
     font-size: 20px;
+    text-align: center;
 }
 
 div.sheet-tab-content { display: none; }
@@ -29,18 +30,17 @@ input.sheet-tab4:checked ~ div.sheet-spirit { display: block; }
 
 input { background: rgba(0,0,0,0); }
 
-.sheet-tab-content input[type=number].sheet-approach-left {
+.sheet-tab-content input[type=number].sheet-approach {
     height: 35px;
     width: 60px;
-    margin-left: 5px;
-    margin-right: 5px;
-    
-    text-align: center;
-    border : solid black 2px;
+    border: solid black 2px;
     font-size: 25px;
     font-weight: bold;
     font-family: 'Shadows into Light', cursive;
+    text-align: center;
+}
 
+.sheet-tab-content input[type=number].sheet-approach-left {
     border-top-left-radius: 100px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -48,21 +48,11 @@ input { background: rgba(0,0,0,0); }
 }
 
 .sheet-tab-content input[type=number].sheet-approach-right {
-    height: 35px;
-    width: 60px;
-    margin-right: 5px;
-    margin-left: 5px;
-    
-    text-align: right;
-    border : solid black 2px;
-    font-size: 25px;
-    font-weight: bold;
-    font-family: 'Shadows into Light', cursive;
-
     border-top-right-radius: 100px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 100px;
+    text-align: right;
 }
 
 .sheet-attribute {
@@ -149,9 +139,11 @@ input[type=text] {
     font-family: 'Shadows into Light', cursive;
     font-size: 16px;
     font-weight: bold;
-    
+
     width: 180px;
 }
+
+
 
 input[type=number] {
     text-align: center;

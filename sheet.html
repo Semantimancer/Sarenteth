@@ -8,38 +8,57 @@
 <div class="sheet-tab-content sheet-human">
     <table>
         <tr>
+            <td></td>
+            <td><h5>Temporary</h5></td>
+            <td><h5>Score</h5></td>
+            <td>Attribute</td>
+            <td><h5>Score</h5></td>
+            <td><h5>Temporary</h5></td>
+            <td></td>
+        </tr>
+        <tr>
             <td style="text-align: right">Vigor</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Vigor_max" value="50" /></td>
             <td class="sheet-attribute">Action</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Meditation_max" value="100-@{Vigor|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
             <td>Meditation</td>
         </tr>
         <tr>
             <td style="text-align: right">Passion</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Passion_max" value="50"/></td>
             <td class="sheet-attribute">Emotion</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Serenity_max" value="100-@{Passion|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
             <td>Serenity</td>
         </tr>
         <tr>
             <td style="text-align: right">Empathy</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Empathy_max" value="50"></td>
             <td class="sheet-attribute">Insight</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Will_max" value="100-@{Empathy|max}" disabled="true"/></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
             <td>Will</td>
         </tr>
         <tr>
             <td style="text-align: right">Hope</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Hope_max" value="50"></td>
             <td class="sheet-attribute">Outlook</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Verity_max" value="100-@{Hope|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
             <td>Verity</td>
         </tr>
         <tr>
             <td style="text-align: right">Fate</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Fate" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Fate" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Fate_max" value="50"></td>
             <td class="sheet-attribute">Destiny</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Choice" value="100-@{Fate}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Choice_max" value="100-@{Fate|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Choice" value="100-@{Fate}" disabled="true" /></td>
             <td>Choice</td>
         </tr>
     </table>
@@ -47,38 +66,57 @@
 <div class="sheet-tab-content sheet-wizard">
     <table>
         <tr>
+            <td></td>
+            <td><h5>Temporary</h5></td>
+            <td><h5>Score</h5></td>
+            <td>Attribute</td>
+            <td><h5>Score</h5></td>
+            <td><h5>Temporary</h5></td>
+            <td></td>
+        </tr>
+        <tr>
             <td style="text-align: right">Vigor</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Vigor" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Vigor_max" value="50" /></td>
             <td class="sheet-attribute">Action</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Meditation_max" value="100-@{Vigor|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Meditation" value="100-@{Vigor}" disabled="true" /></td>
             <td>Meditation</td>
         </tr>
         <tr>
             <td style="text-align: right">Passion</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Passion" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Passion_max" value="50"/></td>
             <td class="sheet-attribute">Emotion</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Serenity_max" value="100-@{Passion|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Serenity" value="100-@{Passion}" disabled="true" /></td>
             <td>Serenity</td>
         </tr>
         <tr>
             <td style="text-align: right">Empathy</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Empathy" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Empathy_max" value="50"></td>
             <td class="sheet-attribute">Insight</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Will_max" value="100-@{Empathy|max}" disabled="true"/></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Will" value="100-@{Empathy}" disabled="true" /></td>
             <td>Will</td>
         </tr>
         <tr>
             <td style="text-align: right">Hope</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Hope" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Hope_max" value="50"></td>
             <td class="sheet-attribute">Outlook</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Verity_max" value="100-@{Hope|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Verity" value="100-@{Hope}" disabled="true" /></td>
             <td>Verity</td>
         </tr>
         <tr>
             <td style="text-align: right">Command</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Command_max" value="50"></td>
             <td class="sheet-attribute">Communion</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Harmony_max" value="100-@{Command|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
             <td>Harmony</td>
         </tr>
     </table>
@@ -101,38 +139,57 @@
 <div class="sheet-tab-content sheet-fairy">
     <table>
         <tr>
+            <td></td>
+            <td><h5>Temporary</h5></td>
+            <td><h5>Score</h5></td>
+            <td>Attribute</td>
+            <td><h5>Score</h5></td>
+            <td><h5>Temporary</h5></td>
+            <td></td>
+        </tr>
+        <tr>
             <td style="text-align: right">Give</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Give" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Give" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Give_max" value="50"></td>
             <td class="sheet-attribute">Exchange</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Take" value="100-@{Give}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Take_max" value="100-@{Give|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Take" value="100-@{Give}" disabled="true" /></td>
             <td>Take</td>
         </tr>
         <tr>
             <td style="text-align: right">Salt</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Salt" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Salt" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Salt_max" value="50"></td>
             <td class="sheet-attribute">Soul</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Fire" value="100-@{Salt}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Fire_max" value="100-@{Salt|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Fire" value="100-@{Salt}" disabled="true" /></td>
             <td>Fire</td>
         </tr>
         <tr>
             <td style="text-align: right">Bulk</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Bulk" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Bulk" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Bulk_max" value="50"></td>
             <td class="sheet-attribute">Glamor</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Wisp" value="100-@{Bulk}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Wisp_max" value="100-@{Bulk|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Wisp" value="100-@{Bulk}" disabled="true" /></td>
             <td>Wisp</td>
         </tr>
         <tr>
             <td style="text-align: right">Joy</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Joy" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Joy" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Joy_max" value="50"></td>
             <td class="sheet-attribute">Song</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Sorrow" value="100-@{Joy}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Sorrow_max" value="100-@{Joy|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Sorrow" value="100-@{Joy}" disabled="true" /></td>
             <td>Sorrow</td>
         </tr>
         <tr>
             <td style="text-align: right">Command</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Command" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Command_max" value="50"></td>
             <td class="sheet-attribute">Communion</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Harmony_max" value="100-@{Command|max}" diasbled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Harmony" value="100-@{Command}" disabled="true" /></td>
             <td>Harmony</td>
         </tr>
     </table>
@@ -155,10 +212,21 @@
 <div class="sheet-tab-content sheet-spirit">
     <table>
         <tr>
+            <td></td>
+            <td><h5>Temporary</h5></td>
+            <td><h5>Score</h5></td>
+            <td>Attribute</td>
+            <td><h5>Score</h5></td>
+            <td><h5>Temporary</h5></td>
+            <td></td>
+        </tr>
+        <tr>
             <td style="text-align: right">Fate</td>
-            <td><input class="sheet-approach-left" type="number" name="attr_Fate" value="100" /></td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Fate" value="100" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Fate_max" value="100"></td>
             <td class="sheet-attribute">Spirit</td>
-            <td><input class="sheet-approach-right" type="number" name="attr_Freedom" value="100-@{Fate}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Freedom" value="100-@{Fate|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Freedom" value="100-@{Fate}" disabled="true" /></td>
             <td>Freedom</td>
         </tr>
     </table>
