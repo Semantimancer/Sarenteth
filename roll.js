@@ -22,6 +22,7 @@ on("chat:message", function(msg){
             //we'll just do a normal roll and give an error message.
             if(speaking){
                 var stat = getAttrByName(speaking.id,capitalize(args[1]),"current");
+                var sagas = getAttrByName(speaking.id,"sagas","current");
                 if(stat){
                     //Once I've found a stat, I have to run a replace over it. This
                     //is because auto-calculated fields in a character sheet don't
@@ -34,7 +35,7 @@ on("chat:message", function(msg){
                     sendChat("","[["+stat+"]]",function(a){
                         var stat = a[0].inlinerolls[0].results.total;
                         //Now it's time to actually roll!
-                        makeRoll("character|"+speaking.id,difficulty,args[1],stat,adv)
+                        makeRoll("character|"+speaking.id,difficulty,args[1],stat,adv,sagas)
                     });
                 }
             } else {
@@ -43,7 +44,7 @@ on("chat:message", function(msg){
                 sendChat("player|"+msg.who,"/roll 1d100");
             }
         } else {
-            makeRoll("player|"+msg.playerid,difficulty,"Custom",+args[1],adv)
+            makeRoll("player|"+msg.playerid,difficulty,"Custom",+args[1],adv,0)
         }
     }
 });
@@ -53,7 +54,7 @@ function capitalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function makeRoll(speaking,difficulty,statname,stat,adv){
+function makeRoll(speaking,difficulty,statname,stat,adv,numRolls){
     sendChat("","/roll 1d100",function(b){
         var roll = JSON.parse(b[0].content).total;
         var result = determineSuccess(roll,difficulty,stat,adv);
@@ -69,7 +70,10 @@ function makeRoll(speaking,difficulty,statname,stat,adv){
             flip = flip+determineSuccess(parseInt(flipped),difficulty,stat,adv);
         }
         
-        sendChat(speaking,"<table style=\"text-align: center; margin-left: auto; margin-right: auto;\"><tr><th colspan=\"2\"><h2>"+result+"</h2></th></tr><tr><th style=\"background: #b3ecff;\"><h4>"+capitalize(statname)+"</h4></th><td>[["+stat+"]]</td></tr><tr><th style=\"background: #b3ecff;\"><h4>Difficulty</h4></th><td>[["+difficulty+"]]</td></tr><tr><th><h4 style=\"background: #b3ecff;\">Roll</h4></th><td>[["+roll+"]]</td></tr><tr><td colspan=\"2\">"+flip+"</table>");
+        sendChat("","/roll "+numRolls+"d10",function(c){
+            var sagaDice = JSON.parse(c[0].content).rolls[0].results.map(function(x){ return "[["+(x["v"]%10)+"]]"; });
+            sendChat(speaking,"<table style=\"text-align: center; margin-left: auto; margin-right: auto;\"><tr><th colspan=\"2\"><h2>"+result+"</h2></th></tr><tr><th style=\"background: #b3ecff;\"><h4>"+capitalize(statname)+"</h4></th><td>[["+stat+"]]</td></tr><tr><th style=\"background: #b3ecff;\"><h4>Difficulty</h4></th><td>[["+difficulty+"]]</td></tr><tr><th><h4 style=\"background: #b3ecff;\">Roll</h4></th><td>[["+roll+"]]</td></tr><tr><th><h4 style=\"background: #b3ecff;\">Saga Dice</h4></th><td>"+sagaDice.join(", ")+"</td></tr><tr><td colspan=\"2\">"+flip+"</table>");
+        });
     });
 }
 

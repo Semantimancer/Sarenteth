@@ -42,6 +42,7 @@ on("chat:message", function(msg){
                        ,"<b>Invoke Destiny:</b> Spend 1 Wyrd. Describe how situation fits with destiny, and narrate the destiny's conclusion."
                        ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
                        ,"<b>Invoke Scar:</b> Offer 1 Wyrd and name an unused scar. If accepted, opponent rolls at double difficulty."
+                       ,"<b>Substitute Saga Die:</b> Spend 1 Wyrd. Replace one die you rolled with a Saga die."
                        ,"<b>Push Obsession:</b> Spend 1 Wyrd and name a relevant obsession. Your Approach becomes equal to your roll result."
                        ,"<b>Compel Obsession:</b> Offer 1+ Wyrd and offer a course of action befitting an obsession. If rejected, they pay you that many Wyrd."
                        ,"<b>Bribe:</b> Wyrd can be offered in exchange for goods and services."];
