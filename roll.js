@@ -22,7 +22,11 @@ on("chat:message", function(msg){
             //we'll just do a normal roll and give an error message.
             if(speaking){
                 var stat = getAttrByName(speaking.id,capitalize(args[1]),"current");
+                
                 var sagas = getAttrByName(speaking.id,"sagas","current");
+                if(speaking.get("name")=="Environment"){
+                    if(args[3]){ sagas = args[3]; }
+                }
                 if(stat){
                     //Once I've found a stat, I have to run a replace over it. This
                     //is because auto-calculated fields in a character sheet don't
@@ -44,7 +48,9 @@ on("chat:message", function(msg){
                 sendChat("player|"+msg.who,"/roll 1d100");
             }
         } else {
-            makeRoll("player|"+msg.playerid,difficulty,"Custom",+args[1],adv,0)
+            var num = 0;
+            if(args[3]){ num = args[3]; }
+            makeRoll("player|"+msg.playerid,difficulty,"Custom",args[1],adv,num)
         }
     }
 });
