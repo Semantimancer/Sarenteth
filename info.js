@@ -113,7 +113,6 @@ function displayAllies(characterName){
         allyList.forEach(function(attribute){
             var characterList = filterObjs(function(obj){
                 if(obj.get("_type") != "character"){ return false; }
-                //log("Is "+obj.get("name")+" found in "+attribute.get("current")+"?");
                 var result = obj.get("name").indexOf(attribute.get("current"));
                 return (result != -1);
             });
@@ -137,6 +136,9 @@ function displayAllies(characterName){
                 case "3": //Fairy
                     var scores = [["Give","Take"],["Salt","Fire"],["Bulk","Wisp"],["Joy","Sorrow"],["Command","Harmony"]];
                     break;
+                case "4":
+                    var scores = [["Fate"]];
+                    break;
                 default:
                     var scores = [["ERROR: Invalid tab value! ("+tab+")",""]];
                     break;
@@ -144,7 +146,7 @@ function displayAllies(characterName){
            scores.forEach(function(tuple){
                var num = getAttrByName(id,tuple[0]);
                arr.push(tuple[0]+": "+num);
-               arr.push(tuple[1]+": "+(100-num));
+               if(tuple[1]){ arr.push(tuple[1]+": "+(100-num)); }
            });
            display(ally.get("name"),arr);
         });
