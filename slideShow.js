@@ -53,7 +53,7 @@ slides = ["Vigor is used for strong, fast attacks. These are done on instinct, a
          ,"When working together, each player rolls separately and the group decides whose roll to use."
          ,"At the end of a conflict you can choose to make your temporary scores permanent."
          ,"If you concede in a contest, the momentum pool is ignored and you narrate the results."
-         ,"Simple failures don't hurt you, they just give your opponent a Wyrd to spend."
+         ,"Simple failures don't hurt you, but they do allow your opponent to set a circumstance."
          ,"Critical failures give your opponent a Wyrd and then damage you."
          ,"Simple successes deal damage equal to the difficulty, and partial successes deal half that."
          ,"Critical successes can either deal damage equal to the roll or inflict a scar."
@@ -132,6 +132,7 @@ slides = ["Vigor is used for strong, fast attacks. These are done on instinct, a
          ,"Did you know that, much like trees, druids reproduce by budding?"
          ,"You can offer to use a scar to double the difficulty of your roll, in exchange for a wyrd."
          ,"Welcome all you wayward souls,\n   you who wander in the dark,\nthere's light for the lost,\n   the forlorn and the meek,\nin the final tolling knell.\n   All forgotten are your sorrows,\nWhen you to soil of earth\n   submit."
-         ,"<b>Achievement Get</b><br>Charlie - <i>Life, Uh, Finds A Way</i>"
+         ,"<b>Achievement Get</b><br>Charlie - <i>Life, Uh, Finds A Way; Howling in the Distance</i><br>Kegan - <i>A Wizard Is Never Late</i><br>Luke - <i>A Wizard Is Never Late</i><br>Brett - <i>Game Over, Man</i>"
          ,"Stupidity is glory if you win!"
+         ,"Charlie wields wanton destruction the way a three-year-old wields a Caprisun: with reverence but also with fruit punch."
          ];
