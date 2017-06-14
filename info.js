@@ -131,7 +131,7 @@ function displayAllies(characterName){
                     var scores = [["Vigor","Meditation"],["Passion","Serenity"],["Empathy","Will"],["Hope","Verity"],["Fate","Choice"]];
                     break;
                 case "2": //Wizard
-                    var scores = [["Vigor","Meditation"],["Passion","Serenity"],["Empathy","Will"],["Hope","Verity"],["Fate","Choice"]];
+                    var scores = [["Vigor","Meditation"],["Passion","Serenity"],["Empathy","Will"],["Hope","Verity"],["Command","Harmony"]];
                     break;
                 case "3": //Fairy
                     var scores = [["Give","Take"],["Salt","Fire"],["Bulk","Wisp"],["Joy","Sorrow"],["Command","Harmony"]];
