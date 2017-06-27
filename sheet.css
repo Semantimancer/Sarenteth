@@ -27,6 +27,7 @@ input.sheet-tab1:checked ~ div.sheet-human { display: block; }
 input.sheet-tab2:checked ~ div.sheet-wizard { display: block; }
 input.sheet-tab3:checked ~ div.sheet-fairy { display: block; }
 input.sheet-tab4:checked ~ div.sheet-spirit { display: block; }
+input.sheet-tab5:checked ~ div.sheet-dead { display: block; }
 
 input { background: rgba(0,0,0,0); }
 
@@ -139,16 +140,15 @@ input[type=text] {
     font-family: 'Shadows into Light', cursive;
     font-size: 16px;
     font-weight: bold;
-
+    
     width: 180px;
 }
-
-
 
 input[type=number] {
     text-align: center;
     
     font-family: 'Shadows into Light', cursive;
     font-size: 20px;
+
     font-weight: bold;
 }

@@ -2,7 +2,8 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span></span>Human&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span></span>Wizard&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span></span>Fairy&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span></span>Spirit
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span></span>Spirit&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5"><span></span>Dead
 <br><br>
 
 <div class="sheet-tab-content sheet-human">
@@ -225,9 +226,55 @@
             <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Fate" value="100" /></td>
             <td><input class="sheet-approach" type="number" name="attr_Fate_max" value="100"></td>
             <td class="sheet-attribute">Spirit</td>
-            <td><input class="sheet-approach" type="number" name="attr_Freedom" value="100-@{Fate|max}" disabled="true"></td>
-            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Freedom" value="100-@{Fate}" disabled="true" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Freedom" value="@{MaxApproach}-@{Fate|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Freedom" value="@{MaxApproach}-@{Fate}" disabled="true" /></td>
             <td>Freedom</td>
+        </tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input class="sheet-approach" type="number" name="attr_MaxApproach" value="100"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<div class="sheet-tab-content sheet-dead">
+    <table>
+        <tr>
+            <td></td>
+            <td><h5>Temporary</h5></td>
+            <td><h5>Score</h5></td>
+            <td>Attribute</td>
+            <td><h5>Score</h5></td>
+            <td><h5>Temporary</h5></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Rage</td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Rage" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Rage_max" value="50" /></td>
+            <td class="sheet-attribute">Drive</td>
+            <td><input class="sheet-approach" type="number" name="attr_Purpose_max" value="@{MaxApproach}-@{Rage|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Purpose" value="@{MaxApproach}-@{Rage}" disabled="true" /></td>
+            <td>Purpose</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Lich</td>
+            <td><input class="sheet-approach sheet-approach-left" type="number" name="attr_Lich" value="50" /></td>
+            <td><input class="sheet-approach" type="number" name="attr_Lich_max" value="50"/></td>
+            <td class="sheet-attribute">Revenant</td>
+            <td><input class="sheet-approach" type="number" name="attr_Wraith_max" value="@{MaxApproach}-@{Lich|max}" disabled="true"></td>
+            <td><input class="sheet-approach sheet-approach-right" type="number" name="attr_Wraith" value="@{MaxApproach}-@{Lich}" disabled="true" /></td>
+            <td>Wraith</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input class="sheet-approach" type="number" name="attr_MaxApproach" value="100"></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 </div>
@@ -305,8 +352,8 @@
         </table>
     </div>
     <div class='sheet-col'>
-    	<h3>Sagas</h3>
-      <input type="number" name="attr_sagas" value="0">
+        <h3>Sagas</h3>
+        <input type="number" name="attr_sagas" value="0">
     </div>
     <div class='sheet-col'>
         <h3>Allies</h3>
