@@ -7,8 +7,10 @@ on("chat:message", function(msg){
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","&lt;score|value&gt; [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|&lt;character&gt;Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","<score|value> [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|<character>Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!advantage","Display possible advantages.");
+        sendChat("!disadvantage","Display possible disadvantages.");
         sendChat("!help","Display these messages.");
     }
 });
@@ -41,8 +43,6 @@ on("chat:message", function(msg){
                        ,"<b>Resolve Uncertainty:</b> Offer 1+ Wyrd and answer an uncertainty. If accepted, answer is true."
                        ,"<b>Invoke Destiny:</b> Spend 1 Wyrd. Describe how situation fits with destiny, and narrate the destiny's conclusion."
                        ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
-                       ,"<b>Invoke Scar:</b> Offer 1 Wyrd and name an unused scar. If accepted, opponent rolls at double difficulty."
-                       ,"<b>Substitute Saga Die:</b> Spend 1 Wyrd. Replace one die you rolled with a Saga die."
                        ,"<b>Push Obsession:</b> Spend 1 Wyrd and name a relevant obsession. Your Approach becomes equal to your roll result."
                        ,"<b>Compel Obsession:</b> Offer 1+ Wyrd and offer a course of action befitting an obsession. If rejected, they pay you that many Wyrd."
                        ,"<b>Bribe:</b> Wyrd can be offered in exchange for goods and services."];
@@ -54,6 +54,19 @@ on("chat:message", function(msg){
                         ,"3. <b>Opponent <i>bids difficulty</i>, <i>declares their approach</i>, <i>adds momentum</i>, and may <i>set advantage</i>."
                         ,"4. <b>Actor</b> can <i>escalate</i> (return to step 2 and switch roles), <i>surrender</i> (lose, but ignore momentum & narrate), or <i>challenge</i> (start a single roll)."];
             display("Sarenteth",steps);
+        } else if(command.indexOf("!advantage") == 0){
+            var lines = ["If you succeed, treat it as a critical success."
+                        ,"If you succeed, create a circumstance."
+                        ,"Roll an extra d10 on the side. You may substitute it for one other die you rolled."
+                        ,"Gain one momentum."
+                        ,"If your opponent has disadvantage, select one of their options to lock. They may not choose it."];
+            display("Sarenteth",lines);
+        } else if(command.indexOf("!disadvantage") == 0){
+            var lines = ["Double the roll's difficulty."
+                        ,"If you succeed, treat it as a partial success."
+                        ,"If you fail, treat it as a critical failure."
+                        ,"Give your opponent 1 Wyrd."];
+            display("Sarenteth",lines);
         }
     }
 });
