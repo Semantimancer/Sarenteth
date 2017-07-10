@@ -7,8 +7,8 @@ on("chat:message", function(msg){
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","<score|value> [adv|disadv]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|<character>Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","&lt;score|value&gt; [extra]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|&lt;character&gt;Display all characters who have yet to take their turn or set it to a specified character's turn");
         sendChat("!advantage","Display possible advantages.");
         sendChat("!disadvantage","Display possible disadvantages.");
         sendChat("!help","Display these messages.");
