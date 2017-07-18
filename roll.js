@@ -7,7 +7,7 @@ on("chat:message", function(msg){
         
         //Check if we're rolling any extra d10s.
         var extra = 0;
-        if(args[2]){
+        if(args[2]&&!isNaN(args[2])){ //If args[2] both exists and is a number
             extra = args[2];
         }
         

@@ -7,8 +7,8 @@ on("chat:message", function(msg){
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","&lt;score|value&gt; [extra]\nMake a <score|value> roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|&lt;character&gt;Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","&lt;score|value&gt; [extra]\nMake a &lt;score|value&gt; roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|&lt;character&gt; Display all characters who have yet to take their turn or set it to a specified character's turn");
         sendChat("!advantage","Display possible advantages.");
         sendChat("!disadvantage","Display possible disadvantages.");
         sendChat("!help","Display these messages.");
@@ -40,7 +40,7 @@ on("chat:message", function(msg){
             displayAllies(msg.who);
         } else if(command.indexOf("!wyrd") == 0){
             var opts = ["<b>Flip Dice:</b> Spend 1 Wyrd. Flip the 10s and 1s position of your roll."
-                       ,"<b>Resolve Uncertainty:</b> Offer 1+ Wyrd and answer an uncertainty. If accepted, answer is true."
+                       ,"<b>Resolve Uncertainty:</b> Offer 1+ Wyrd and answer an uncertainty. If accepted, answer is true. (1 Wyrd only creates a temporary circumstance)"
                        ,"<b>Invoke Destiny:</b> Spend 1 Wyrd. Describe how situation fits with destiny, and narrate the destiny's conclusion."
                        ,"<b>Defy Death:</b> Burn 1 Wyrd. Make a Destiny roll to avoid losing character."
                        ,"<b>Push Obsession:</b> Spend 1 Wyrd and name a relevant obsession. Your Approach becomes equal to your roll result."
@@ -56,17 +56,17 @@ on("chat:message", function(msg){
             display("Sarenteth",steps);
         } else if(command.indexOf("!advantage") == 0){
             var lines = ["If you succeed, treat it as a critical success."
-                        ,"If you succeed, create a circumstance."
+                        ,"If you succeed, create a temporary circumstance."
                         ,"Roll an extra d10 on the side. You may substitute it for one other die you rolled."
-                        ,"Gain one momentum."
-                        ,"If your opponent has disadvantage, select one of their options to lock. They may not choose it."];
-            display("Sarenteth",lines);
+                        ,"Gain one momentum (or one mana if this is a spell)."
+                        ,"If your opponent has disadvantage, select one of their options to lock. They may not choose it for this roll."];
+            display("Advantage",lines);
         } else if(command.indexOf("!disadvantage") == 0){
             var lines = ["Double the roll's difficulty."
                         ,"If you succeed, treat it as a partial success."
                         ,"If you fail, treat it as a critical failure."
                         ,"Give your opponent 1 Wyrd."];
-            display("Sarenteth",lines);
+            display("Disadvantage",lines);
         }
     }
 });
