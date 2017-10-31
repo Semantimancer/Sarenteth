@@ -132,7 +132,10 @@ slides = ["Vigor is used for strong, fast attacks. These are done on instinct, a
          ,"Did you know that, much like trees, druids reproduce by budding?"
          ,"You can offer to use a scar to double the difficulty of your roll, in exchange for a wyrd."
          ,"Welcome all you wayward souls,\n   you who wander in the dark,\nthere's light for the lost,\n   the forlorn and the meek,\nin the final tolling knell.\n   All forgotten are your sorrows,\nWhen you to soil of earth\n   submit."
-         ,"<b>Achievement Get</b><br>Charlie - <i>Life, Uh, Finds A Way; Howling in the Distance</i><br>Kegan - <i>A Wizard Is Never Late</i><br>Luke - <i>A Wizard Is Never Late</i><br>Brett - <i>Game Over, Man</i>"
+         ,"<b>Achievement Get</b><br>Charlie - <i>Life, Uh, Finds A Way; Howling in the Distance; Never Tell Me The Odds; Game Over, Man; Spared No Expense; Put On The Glasses</i><br>Kegan - <i>A Wizard Is Never Late</i><br>Luke - <i>A Wizard Is Never Late</i><br>Brett - <i>Game Over, Man</i><br>Graham - <i>Put On The Glasses</i>"
          ,"Stupidity is glory if you win!"
          ,"Charlie wields wanton destruction the way a three-year-old wields a Caprisun: with reverence but also with fruit punch."
+         ,"The Man in the Red Cloak laughs"
+         ,"You can't swing a bag of chickens you ain't got."
+         ,"The fear penalty is the minimum by which you must increase the difficulty when you escalate."
          ];
