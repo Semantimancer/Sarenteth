@@ -7,7 +7,14 @@ on("chat:message", function(msg){
         
         //Check if we're rolling any extra d10s.
         var extra = 0;
-        if(args[2]&&!isNaN(args[2])){ //If args[2] both exists and is a number
+        var double = false;
+        if(args[2]&&isNaN(args[2])){ //If args[2] both exists and is not a number
+            if(args[2]=="double"){
+                double = true;
+            } else {
+                sendChat(msg.who,"Error: Unknown argument \""+args[2]+"\"");
+            }
+        } else if(args[2]){ //Else, if args[2] exists, it must be a number
             extra = args[2];
         }
         
@@ -31,7 +38,7 @@ on("chat:message", function(msg){
                     sendChat("","[["+stat+"]]",function(a){
                         var stat = a[0].inlinerolls[0].results.total;
                         //Now it's time to actually roll!
-                        makeRoll("character|"+speaking.id,difficulty,args[1],stat,extra)
+                        makeRoll("character|"+speaking.id,difficulty,args[1],stat,extra,double)
                     });
                 }
             } else {
@@ -42,10 +49,10 @@ on("chat:message", function(msg){
             //If we found the player's character, go ahead. Otherwise,
             //we'll just do a normal roll and give an error message.
             if(speaking){
-                makeRoll("character|"+speaking.id,difficulty,"Custom",args[1],extra)
+                makeRoll("character|"+speaking.id,difficulty,"Custom",args[1],extra,double)
             } else {
                 sendChat("player|"+msg.playerid,"ERROR: No character found. Rolling normally...")
-                makeRoll("player|"+msg.playerid,difficulty,"Custom",args[1],extra)
+                makeRoll("player|"+msg.playerid,difficulty,"Custom",args[1],extra,double)
             }
         }
     }
@@ -56,9 +63,12 @@ function capitalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function makeRoll(speaking,difficulty,statname,stat,extraRolls){
+function makeRoll(speaking,difficulty,statname,stat,extraRolls,doubleDifficulty){
     sendChat("","/roll 1d100",function(b){
         var roll = JSON.parse(b[0].content).total;
+        if(doubleDifficulty){
+            difficulty = difficulty*2;
+        }
         var result = determineSuccess(roll,difficulty,stat);
         
         var flip = "Flipping the dice would result in a ";

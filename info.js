@@ -2,13 +2,13 @@ on("chat:message", function(msg){
     if (msg.type=="api"&&msg.content.indexOf("!help") == 0){
         sendChat("!time","Display current date and phase of the moon");
         sendChat("!circumstances","Display current circumstances");
-        sendChat("!destinies","Display current destinies");
+        sendChat("!destinies [players]","Display current destinies (or only player destinies)");
         sendChat("!allies","Display the allies (and their scores) of the current character");
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","&lt;score|value&gt; [extra]\nMake a &lt;score|value&gt; roll and use advantage/disadvantage as appropriate. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|&lt;character&gt; Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","&lt;score|value&gt; [#|double]\nMake a <score|value> roll and roll # extra dice or double the difficulty. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|&gt;character%gt; Display all characters who have yet to take their turn or set it to a specified character's turn");
         sendChat("!advantage","Display possible advantages.");
         sendChat("!disadvantage","Display possible disadvantages.");
         sendChat("!help","Display these messages.");
@@ -26,7 +26,7 @@ on("chat:message", function(msg){
             var args = msg.content.split(" ");
             if(args[1]){
                 if(args[1]=="players"){
-                    var names = ["Graham","Thomas","Kyle","Luke","Brett","Charlie","Kegan"];
+                    var names = ["Graham","Thomas","Kyle","Luke","Brett","Charlie","Kegan","Joschi"];
                 } else {
                     var names = [args[1]];
                 }
