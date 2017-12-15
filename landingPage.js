@@ -142,6 +142,7 @@ on("chat:message", function(msg){
             
         circToken.set("bar1_value",circText.get("_id"));
         sendChat("Circumstance","New circumstance <b>"+circName+"</b> added by "+msg.who);
+        spawnFx(450,520,"explode-magic");
     }
 });
 
