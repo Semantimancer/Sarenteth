@@ -7,8 +7,8 @@ on("chat:message", function(msg){
         sendChat("!wyrd","Display possible uses of Wyrd");
         sendChat("!weather","Display the current weather and temperature");
         sendChat("!contest","Display contest rules & current circumstances");
-        sendChat("!roll","&lt;score|value&gt; [#|double|crit-adv|crit-disadv|partial|circumstance|momentum|wyrd|mana]\nMake a <score|value> roll and factor in advantage/disadvantage options. <b>Message must be sent as the character who is rolling.</b>");
-        sendChat("!popcorn","[all]|&lt;character&gt;Display all characters who have yet to take their turn or set it to a specified character's turn");
+        sendChat("!roll","&lt;score|value&gt; [#|double|crit-adv|crit-disadv|partial|circumstance|momentum|wyrd|mana]\nMake a &lt;score|value&gt; roll and factor in advantage/disadvantage options. <b>Message must be sent as the character who is rolling.</b>");
+        sendChat("!popcorn","[all]|&lt;character&gt; Display all characters who have yet to take their turn or set it to a specified character's turn");
         sendChat("!advantage","Display possible advantages.");
         sendChat("!disadvantage","Display possible disadvantages.");
         sendChat("!help","Display these messages.");
@@ -55,17 +55,17 @@ on("chat:message", function(msg){
                         ,"4. <b>Actor</b> can <i>escalate</i> (return to step 2 and switch roles), <i>surrender</i> (lose, but ignore momentum & narrate), or <i>challenge</i> (start a single roll)."];
             display("Sarenteth",steps);
         } else if(command.indexOf("!advantage") == 0){
-            var lines = ["If you succeed, treat it as a critical success."
-                        ,"If you succeed, create a temporary circumstance."
-                        ,"Roll an extra d10 on the side. You may substitute it for one other die you rolled."
-                        ,"Gain one momentum (or one mana if this is a spell)."
-                        ,"If your opponent has disadvantage, select one of their options to lock. They may not choose it for this roll."];
+            var lines = ["If you succeed, treat it as a critical success (crit-adv)"
+                        ,"If you succeed, create a temporary circumstance (circumstance)"
+                        ,"Roll an extra d10 on the side. You may substitute it for one other die you rolled (1/2/...)"
+                        ,"Gain one momentum, or one mana if this is a spell (momentum/mana)"
+                        ,"If your opponent has disadvantage, select one of their options to lock: they may not choose it for this roll"];
             display("Advantage",lines);
         } else if(command.indexOf("!disadvantage") == 0){
-            var lines = ["Double the roll's difficulty."
-                        ,"If you succeed, treat it as a partial success."
-                        ,"If you fail, treat it as a critical failure."
-                        ,"Give your opponent 1 Wyrd."];
+            var lines = ["Double the roll's difficulty (double)"
+                        ,"If you succeed, treat it as a partial success (partial)"
+                        ,"If you fail, treat it as a critical failure (crit-disadv)"
+                        ,"Give your opponent 1 Wyrd (wyrd)"];
             display("Disadvantage",lines);
         }
     }
