@@ -113,29 +113,20 @@ function makeRoll(speaking,difficulty,statname,stat,extraRolls,mods){
         sendChat("","/roll "+extraRolls+"d10",function(c){
             var sagaDice = JSON.parse(c[0].content).rolls[0].results.map(function(x){ return "[["+(x["v"]%10)+"]]"; });
             var output = "<table style=\"text-align: center; margin-left: auto; margin-right: auto;\"><tr><th colspan=\"2\"><h2>"+result+"</h2></th></tr><tr><th style=\"background: #b3ecff;\"><h4>"+capitalize(statname)+"</h4></th><td>[["+stat+"]]</td></tr><tr><th style=\"background: #b3ecff;\"><h4>Difficulty</h4></th><td>[["+difficulty+"]]</td></tr><tr><th><h4 style=\"background: #b3ecff;\">Roll</h4></th><td>[["+roll+"]]</td></tr><tr><th><h4 style=\"background: #b3ecff;\">Extra Dice</h4></th><td>"+sagaDice.join(", ")+"</td></tr><tr><td colspan=\"2\">"+flip+"</td></tr>";
+            var text = "";
             
-            var extraRowNum = 0;
-            
-            if (mods.indexOf("circumstance")!==-1){
-                extraRowNum++;
-                var text = "<strike>Create A Circumstance</strike>"; //I'm aware you're supposed to use CSS most of the time, but this is just plain easier
-                if (result.indexOf("Success")!==-1){ text = "Create A Circumstance"; }
-                output = output + makeExtraRow(text,extraRowNum)
-            }
-            
-            if (mods.indexOf("momentum")!==-1){
-                extraRowNum++;
-                output = output + makeExtraRow("Gain One Momentum",extraRowNum);
-            }
-            
-            if (mods.indexOf("mana")!==-1){
-                extraRowNum++;
-                output = output + makeExtraRow("Gain One Mana",extraRowNum);
-            }
-            
-            if (mods.indexOf("wyrd")!==-1){
-                extraRowNum++;
-                output = output + makeExtraRow("Give Your Opponent 1 Wyrd",extraRowNum);
+            for(i=0;i<mods.length;i++){
+                if(mods[i]=="circumstance"){
+                    text = "<strike>Create A Circumstance</strike>"; //I'm aware you're supposed to use CSS most of the time, but this is just plain easier
+                    if (result.indexOf("Success")!==-1){ text = "Create A Circumstance"; }
+                } else if(mods[i]=="momentum"){
+                    text = "Gain One Momentum";
+                } else if(mods[i]=="mana"){
+                    text = "Gain One Mana";
+                } else if(mods[i]=="wyrd"){
+                    text = "Give Your Opponent 1 Wyrd";
+                }
+                output = output + makeExtraRow(text,i);
             }
             
             sendChat(speaking,output+"</table>");
