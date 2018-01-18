@@ -42,6 +42,7 @@ on("chat:message", function(msg){
         var border = findObjs({ _id: "-L0AnSaaNLxhf0A-uM0g", _pageid: page})[0];
         var mapBG = findObjs({ _pageid: page, _id: "-L0Am_q13lEKN-W3mvqC"})[0];
         var councilBG = findObjs({ _pageid: page, _id: "-L0FwmiDJ8ft5xMTUn-t"})[0];
+        var achievementBGs = findObjs({ _pageid: page, bar3_value: "achievement"});
         
         if(!pageBox){
             sendChat("API Error","/w gm Couldn't find page box, terminating...");
@@ -59,6 +60,10 @@ on("chat:message", function(msg){
             sendChat("API Error","/w gm Couldn't find council object, terminating...");
             return;
         }
+        if(!achievementBGs){
+            sendChat("API Error","/w gm Couldn't find achievement objects, terminating...");
+            return;
+        }
         
         var cmd = msg.content.split(" ")[1];
         var mapItems = findObjs({ _pageid: page, gmnotes: "map"});
@@ -74,6 +79,15 @@ on("chat:message", function(msg){
         })
         var circItems = findObjs({ _pageid: page, gmnotes: "circumstance"});
         
+        var achievementTexts = [];
+        var x;
+        for(i = 0; i<achievementBGs.length;i++){
+            x = findObjs({ _pageid: page, _id: achievementBGs[i].get("bar1_value") })[0];
+            if(x){ achievementTexts.push(x); }
+            x = findObjs({ _pageid: page, _id: achievementBGs[i].get("bar2_value") })[0];
+            if(x){ achievementTexts.push(x); }
+        }
+        
         var pushBack = function(x){ toBack(x); x.set("layer","map"); };
         var pushFront = function(x){ toFront(x); x.set("layer","objects"); };
         
@@ -84,6 +98,8 @@ on("chat:message", function(msg){
             mapTexts.map(toBack);
             circItems.map(pushFront);
             councilItems.map(pushBack);
+            achievementBGs.map(pushBack);
+            achievementTexts.map(pushBack);
         } else if(cmd=="map"){
             toFront(mapBG);
             toFront(border);
@@ -91,6 +107,8 @@ on("chat:message", function(msg){
             mapTexts.map(toFront);
             circItems.map(pushBack);
             councilItems.map(pushBack);
+            achievementBGs.map(pushBack);
+            achievementTexts.map(pushBack);
         } else if(cmd=="council"){
             toFront(councilBG);
             toFront(pageBox);
@@ -99,6 +117,18 @@ on("chat:message", function(msg){
             mapTexts.map(toBack);
             circItems.map(pushBack);
             councilItems.map(pushFront);
+            achievementBGs.map(pushBack);
+            achievementTexts.map(pushBack);
+        } else if(cmd=="achievements"){
+            toBack(councilBG);
+            toFront(pageBox);
+            toFront(border);
+            mapItems.map(toBack);
+            mapTexts.map(toBack);
+            circItems.map(pushBack);
+            councilItems.map(pushBack);
+            achievementBGs.map(pushFront);
+            achievementTexts.map(pushFront);
         }
     }
 });
