@@ -7,13 +7,14 @@ on("chat:message", function(msg){
             var tokens = filterObjs(function(obj){
                 if (obj.get("_pageid") != page) { return false; }
                 if (obj.get("_subtype") != "token") { return false; }
+                if (!obj.get("name")){ return false; }
                 if (obj.get("name") == "Environment"){ return false; }
                 if (!obj.get("bar1_value")){ return false; }
+                if (obj.get("bar3_value") == "achievement"){ return false; }
+                if (obj.get("gmnotes") == "circumstance"){ return false; }
                 var list = obj.get("statusmarkers");
                 if(list) { 
-                    log("This one's good: ["+list+"] "+obj.get("name"));
                     return !(list.includes("blue"));
-                    
                 } else {
                     log("No list found for "+obj.get("name"));
                     return true;
@@ -25,6 +26,7 @@ on("chat:message", function(msg){
                 var name = tokens[i].get("name");
                 if (!name){
                     name = "Unknown Token";
+                    log("Token: "+tokens[i].get("bar1_value"));
                 }
                 if(blue){
                     retString = retString + "<tr><td style=\"background: #b3ecff;\"><h4>" + name + "</h4></th></tr>";
@@ -53,6 +55,8 @@ on("chat:message", function(msg){
             });
             if(tokens.length!=1){
                 retString = "Unable to set '"+arg+"' as the next active character.";
+                log(arg);
+                log(msg.content);
             } else {
                 tokens[0].set("status_bluemarker",true);
                 retString = "It is now "+arg+"'s turn.";
@@ -61,8 +65,11 @@ on("chat:message", function(msg){
             var tokens = filterObjs(function(obj){
                 if (obj.get("_pageid") != page) { return false; }
                 if (obj.get("_subtype") != "token") { return false; }
+                if (!obj.get("name")){ return false; }
                 if (obj.get("name") == "Environment"){ return false; }
                 if (!obj.get("bar1_value")){ return false; }
+                if (obj.get("bar3_value") == "achievement"){ return false; }
+                if (obj.get("gmnotes") == "circumstance"){ return false; }
                 var list = obj.get("statusmarkers");
                 if(list) { 
                     log("This one's good: ["+list+"] "+obj.get("name"));
@@ -78,7 +85,7 @@ on("chat:message", function(msg){
             var name = "";
             for(i = 0; i<tokens.length; i++){
                 name = tokens[i].get("name");
-                retString = retString + "\n[" + name + "](!popcorn "+name.replace(")",")")+")";
+                retString = retString + "\n[" + name + "](!popcorn "+name.replace(")","&rpar;")+");" //The second ")" has to be an & followed by rpar; (the code editor keeps resolving HTML entities)
             }
             
         }
