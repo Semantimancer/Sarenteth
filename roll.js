@@ -15,7 +15,7 @@ on("chat:message", function(msg){
                     case "crit-adv":
                     case "crit-disadv":
                     case "partial":
-                    case "circumstance":
+                    case "insight":
                     case "momentum":
                     case "wyrd":
                     case "mana":
@@ -40,13 +40,13 @@ on("chat:message", function(msg){
             //we'll just do a normal roll and give an error message.
             if(speaking){
                 var stat = getAttrByName(speaking.id,capitalize(args[1]),"current");
-                
+
                 if(stat){
                     //Once I've found a stat, I have to run a replace over it. This
                     //is because auto-calculated fields in a character sheet don't
                     //reference a particular character, but the chat needs to know
                     //whose attributes to look at.
-                    stat = stat.replace("@{","@{"+msg.who+"|");
+                    stat = stat.replace(/@{/g,"@{"+msg.who+"|");
                     //Because the character's attribute might be auto-calculated,
                     //we can't just use "getAttrByName" to fetch the value. So
                     //we'll need to go down another level into a sendChat.
@@ -116,9 +116,9 @@ function makeRoll(speaking,difficulty,statname,stat,extraRolls,mods){
             var text = "";
             
             for(i=0;i<mods.length;i++){
-                if(mods[i]=="circumstance"){
-                    text = "<strike>Create A Circumstance</strike>"; //I'm aware you're supposed to use CSS most of the time, but this is just plain easier
-                    if (result.indexOf("Success")!==-1){ text = "Create A Circumstance"; }
+                if(mods[i]=="insight"){
+                    text = "Gain An Insight"; 
+                    if (result.indexOf("Success")==-1){ text = "<strike>"+text+"</strike>"; } //I'm aware you're supposed to use CSS most of the time, but this is just plain easier
                 } else if(mods[i]=="momentum"){
                     text = "Gain One Momentum";
                 } else if(mods[i]=="mana"){
